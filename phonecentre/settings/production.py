@@ -5,10 +5,10 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 # WHITENOISE_MANIFEST_STRICT = False
-# MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
+MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
@@ -17,11 +17,10 @@ STORAGES = {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+        # "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"
     },
 }
-
-
 
 
 LOGGING = {
@@ -45,7 +44,7 @@ LOGGING = {
 # DEFAULT_HSTS_SECONDS = 30 * 24 * 60 * 60  # 30 days
 # SECURE_HSTS_SECONDS = int(
 #     os.environ.get("SECURE_HSTS_SECONDS", DEFAULT_HSTS_SECONDS)
-# ) 
+# )
 # SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 # SECURE_BROWSER_XSS_FILTER = True
 # SECURE_CONTENT_TYPE_NOSNIFF = True
