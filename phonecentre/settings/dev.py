@@ -11,8 +11,6 @@ ALLOWED_HOSTS = ["*"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
