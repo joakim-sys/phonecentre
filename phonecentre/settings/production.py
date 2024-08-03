@@ -9,14 +9,7 @@ ALLOWED_HOSTS = ['*']
 
 MIDDLEWARE.append("whitenoise.middleware.WhiteNoiseMiddleware")
 # STORAGES['STATICFILES_STORAGE'] = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STORAGES['STATICFILES_STORAGE'] = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
-
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
-    },
-}
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 
 LOGGING = {
