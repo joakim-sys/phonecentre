@@ -8,7 +8,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 MIDDLEWARE.append("whitenoise.middleware.WhiteNoiseMiddleware")
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STORAGES['STATICFILES_STORAGE'] = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 LOGGING = {
     "version": 1,
