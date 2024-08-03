@@ -11,26 +11,23 @@ ALLOWED_HOSTS = ["*"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-MIDDLEWARE.append("whitenoise.middleware.WhiteNoiseMiddleware")
-# STORAGES['STATICFILES_STORAGE'] = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STORAGES['STATICFILES_STORAGE'] = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
-if DEBUG == False:
-    LOGGING = {
-        "version": 1,
-        "disable_existing_loggers": False,
-        "handlers": {
-            "console": {
-                "class": "logging.StreamHandler",
-            },
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
         },
-        "loggers": {
-            "django": {
-                "handlers": ["console"],
-                "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
-            },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": os.getenv("DJANGO_LOG_LEVEL", "INFO"),
         },
-    }
+    },
+}
 
 
 try:
