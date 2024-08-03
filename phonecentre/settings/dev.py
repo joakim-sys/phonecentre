@@ -12,8 +12,8 @@ ALLOWED_HOSTS = ["*"]
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 MIDDLEWARE.append("whitenoise.middleware.WhiteNoiseMiddleware")
-STORAGES['STATICFILES_STORAGE'] = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
+# STORAGES['STATICFILES_STORAGE'] = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STORAGES['STATICFILES_STORAGE'] = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 if DEBUG == False:
     LOGGING = {
