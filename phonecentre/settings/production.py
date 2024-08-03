@@ -7,8 +7,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-WHITENOISE_MANIFEST_STRICT = False
-MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
+# WHITENOISE_MANIFEST_STRICT = False
+# MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
