@@ -11,6 +11,14 @@ MIDDLEWARE.append("whitenoise.middleware.WhiteNoiseMiddleware")
 # STORAGES['STATICFILES_STORAGE'] = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STORAGES['STATICFILES_STORAGE'] = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
+
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+    },
+}
+
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
