@@ -135,8 +135,8 @@ STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, "static"),
 ]
 
-# STATIC_ROOT = os.path.join(PROJECT_DIR, "collect_static")
-STATIC_ROOT = '/home/wagtail/phonecentre/phonecentre/collect_static/'
+STATIC_ROOT = os.path.join(PROJECT_DIR, "collect_static")
+# STATIC_ROOT = '/home/wagtail/phonecentre/phonecentre/collect_static/'
 STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
@@ -144,6 +144,14 @@ MEDIA_URL = "/media/"
 
 # Default storage settings, with the staticfiles storage updated.
 # See https://docs.djangoproject.com/en/5.0/ref/settings/#std-setting-STORAGES
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+    },
+}
 
 
 # Wagtail settings
