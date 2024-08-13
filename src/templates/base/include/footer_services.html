@@ -1,0 +1,7 @@
+{% load wagtailcore_tags %} 
+{% for service in services %}
+<li>
+  <i class="bx bx-chevron-right"></i>
+  <a href="{% pageurl service.page %}">{{service.title}}</a>
+</li>
+{% endfor %}

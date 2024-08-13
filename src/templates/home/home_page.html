@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block hero %}{% include "includes/sections/hero.html" %}{% endblock hero %}
+
+{% block content %}
+
+{% include "includes/sections/about.html" %}
+{% include "includes/sections/services.html" %}
+{% include "includes/sections/features.html" %}
+{% include "includes/sections/cta.html" %}
+{% comment %} {% include "includes/sections/pricing.html" %} {% endcomment %}
+{% include "includes/sections/faq.html" %}
+{% comment %} {% include "includes/sections/team.html" %} {% endcomment %}
+{% include "includes/sections/contact.html" %}
+
+{% endblock content %}

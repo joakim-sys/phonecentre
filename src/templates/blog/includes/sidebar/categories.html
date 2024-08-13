@@ -1,0 +1,10 @@
+{% load wagtailcore_tags navigation_tags blog_tags %}
+
+{% get_site_root as site_root %}
+
+<h3 class="sidebar-title">Categories</h3>
+<div class="sidebar-item categories">
+
+  {% get_categories parent=site_root  %}
+
+</div>

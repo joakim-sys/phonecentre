@@ -1,0 +1,126 @@
+{% with title=page.faq_title heading=page.faq_heading subheading=page.faq_subheading faqs=page.faqs.all %}
+<!-- ======= F.A.Q Section ======= -->
+<section id="faq" class="faq">
+  <div class="container">
+    <div class="section-title">
+      <h2>
+        {% if title %}{{title}}{% else %}FAQ{% endif %}
+      </h2>
+      <h3>{% if heading %}{{heading}}{% else %}Frequently Asked Questions{% endif %}</h3>
+    </div>
+
+    <ul class="faq-list">
+      {% if faqs %}
+      {% for faq in faqs.all %}
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" href="#faq{{faq.id}}">
+          {{faq.question}}
+          <i class="bi bi-chevron-down icon-show"></i
+          ><i class="bi bi-chevron-up icon-close"></i>
+        </div>
+        <div id="faq{{faq.id}}" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            {{faq.answer}}
+          </p>
+        </div>
+      </li>
+      {% endfor %}
+      {% else %}
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">
+          What is VoIP, and how does it work?
+          <i class="bi bi-chevron-down icon-show"></i
+          ><i class="bi bi-chevron-up icon-close"></i>
+        </div>
+        <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            VoIP (Voice over Internet Protocol) allows you to make voice calls using a broadband internet connection instead of a regular phone line. It converts your voice into a digital signal that travels over the internet.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" href="#faq2">
+          Can I keep my existing phone number?
+          <i class="bi bi-chevron-down icon-show"></i
+          ><i class="bi bi-chevron-up icon-close"></i>
+        </div>
+        <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Yes, you can port your existing phone number to Phone Centre. Our team will assist you with the process to ensure a seamless transition. 
+          </p>        
+          </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" href="#faq3">
+          Is VoIP reliable for business communication?
+          <i class="bi bi-chevron-down icon-show"></i
+          ><i class="bi bi-chevron-up icon-close"></i>
+        </div>
+        <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Absolutely. Our VoIP services are designed for high reliability and quality, with features like call encryption, 24/7 support, and network monitoring to ensure your business communications are always up and running.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" href="#faq4">
+          What equipment do I need to use VoIP?
+          <i class="bi bi-chevron-down icon-show"></i
+          ><i class="bi bi-chevron-up icon-close"></i>
+        </div>
+        <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            You’ll need a stable internet connection, a VoIP-enabled phone, or a computer with a headset. We also offer a variety of VoIP devices and adapters if you need them.          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" href="#faq5">
+          How secure are my calls with Phone Centre?
+          <i class="bi bi-chevron-down icon-show"></i
+          ><i class="bi bi-chevron-up icon-close"></i>
+        </div>
+        <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            We prioritize your privacy and security by using advanced encryption protocols for all voice and data transmissions, ensuring your communications remain confidential.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" href="#faq6">
+          Do you offer international calling?
+          <i class="bi bi-chevron-down icon-show"></i
+          ><i class="bi bi-chevron-up icon-close"></i>
+        </div>
+        <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Yes, we offer competitive rates for international calls, allowing you to connect with clients and partners around the globe without breaking the bank.
+          </p>
+        </div>
+      </li>
+
+      <li>
+        <div data-bs-toggle="collapse" class="collapsed question" href="#faq7">
+          How do I get support if I encounter an issue?
+          <i class="bi bi-chevron-down icon-show"></i
+          ><i class="bi bi-chevron-up icon-close"></i>
+        </div>
+        <div id="faq7" class="collapse" data-bs-parent=".faq-list">
+          <p>
+            Our support team is available 24/7 to assist you with any issues or questions. You can reach us via phone, email, or live chat.
+          </p>
+        </div>
+      </li>
+
+
+
+      {% endif %}
+    </ul>
+  </div>
+</section>
+<!-- End F.A.Q Section -->
+{% endwith %}

@@ -1,0 +1,98 @@
+{% load wagtailcore_tags %}
+
+{% with title=page.services_title heading=page.services_heading subheading=page.services_subheading services=page.services  %}
+<!-- ======= Services Section ======= -->
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>
+      {% if title %}
+      {{title}}
+      {% else %}
+      Services
+      {% endif %}
+      </h2>
+      
+      {% if heading %}
+      <h3><span>{{heading}}</span></h3>
+      {% else %}
+
+      <h3>Comprehensive VoIP Solutions</h3>
+      {% endif %}
+
+      <p>
+        {% if subheading %}
+        {{subheading}}
+        {% else %}
+        Explore our range of services designed to enhance your business communication experience.
+        
+        {% endif %}
+      </p>
+    </div>
+
+    <div class="row">
+      {% if services %}
+      {% for service in services %}
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+        <div class="icon-box">
+          <div class="icon"><i class="bx {{service.icon}}"></i></div>
+
+          {% if service.link %}
+          <h4 class="title"><a href="{% pageurl service.link %}">{{service.title}}</a></h4>
+          {% else %}
+          <h4 class="title">{{service.title}}</h4>
+          {% endif %}
+
+          <p class="description">{{service.description}}</p>
+        </div>
+      </div>      
+      {% endfor %}
+      {% else %}
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+        <div class="icon-box">
+            <div class="icon"><i class="bx bx-phone"></i></div>
+            <h4 class="title"><a href="#">VoIP Calls</a></h4>
+            <p class="description">
+                Experience crystal-clear voice calls with our reliable VoIP services, perfect for any business size.
+            </p>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+        <div class="icon-box">
+            <div class="icon"><i class="bx bx-globe"></i></div>
+            <h4 class="title"><a href="#">Virtual Numbers</a></h4>
+            <p class="description">
+                Get customizable virtual numbers that allow your business to establish a local presence anywhere.
+            </p>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+        <div class="icon-box">
+            <div class="icon"><i class="bx bx-lock"></i></div>
+            <h4 class="title"><a href="#">Secure Channels</a></h4>
+            <p class="description">
+                Keep your communications secure with our encrypted VoIP channels designed for privacy and protection.
+            </p>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+        <div class="icon-box">
+            <div class="icon"><i class="bx bx-support"></i></div>
+            <h4 class="title"><a href="#">24/7 Support</a></h4>
+            <p class="description">
+                Enjoy peace of mind with round-the-clock customer support, ready to assist whenever you need it.
+            </p>
+        </div>
+    </div>
+    
+
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+<!-- End Services Section -->
+{% endwith %}

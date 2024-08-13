@@ -1,0 +1,85 @@
+{% with title=page.about_title heading=page.about_heading subheading=page.about_subheading intro=page.about_intro listing=page.about_listed_services.all body=page.about_body cta_link=page.about_cta_link cta_text=page.about_cta_text %}
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>{% if title %}{{title}}{% else %}About{% endif %}</h2>
+      
+      {% if heading %} <h3>{{heading}}</h3> {% else %} <h3>Empowering Your<span> Communication </span>Needs </h3> {% endif %}
+
+      {% if subheading %}
+        <p>{{subheading}}</p>
+        {% else %}
+       <p>Reliable, cost-effective, and innovative VoIP solutions for businesses of all sizes.</p> 
+      {% endif %}
+    </div>
+
+    <div class="row content">
+      <div class="col-lg-6">
+        <p>
+          {% if intro %}
+          {{intro}}
+          {% else %}
+          At Phone Centre, we are committed to delivering top-tier communication services tailored to meet the diverse needs of our clients. Our VoIP solutions are designed to provide exceptional clarity, reliability, and ease of use, ensuring that your business can communicate effectively without interruption.            
+          
+          {% endif %}
+        </p>
+        {% if listing %}
+        <ul>
+          {% for item in listing %}
+          <li>
+            <i class="ri-check-double-line"></i>{{item}}
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+
+        <ul>
+          <li>
+            <i class="ri-check-double-line"></i>
+            High-Quality VoIP Calls
+          
+          </li>
+          <li>
+            <i class="ri-check-double-line"></i>
+            Customizable Virtual Numbers
+           </li>
+          <li>
+            <i class="ri-check-double-line"></i>
+            Secure Communication Channels
+
+                      <li>
+            <i class="ri-check-double-line"></i>
+            24/7 Customer Support
+
+                    </li>
+          <li>
+            <i class="ri-check-double-line"></i>
+            Flexible Pricing Plans
+
+                    </li>
+        </ul>
+        {% endif %}
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0">
+        <p>
+           {% if body %}
+           {{body}}
+           {% else %}
+          <p>
+            Our team of experts is dedicated to innovation and customer satisfaction. We constantly strive to improve our offerings, keeping up with the latest technology trends to provide you with the most advanced features available. Whether you need a simple setup or a more complex solution, we have the expertise and tools to support your business communication goals.            
+          </p>
+            <p>
+              Choose Phone Centre, where your communication is our priority. We believe in building long-lasting relationships with our clients by offering unmatched service and support that you can rely on.              
+            </p>          
+           {% endif %}
+        </p>
+
+        <a href="{% if cta_link %}{{cta_link}}{% else %}#{% endif %}" class="btn-learn-more">{% if cta_text %}{{cta_text}}{% else %}Learn More{% endif %}</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Section -->
+{% endwith %}

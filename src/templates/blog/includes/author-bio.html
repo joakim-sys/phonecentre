@@ -1,0 +1,31 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="blog-author d-flex align-items-center">
+    {% if author.image %}
+    {% image author.image fill-600x600 as img %}
+    <img
+    src="{{img.url}}"
+    class="rounded-circle float-left"
+    alt=""
+  />
+      {% endif %}
+  <div>
+    <h4>{{author}}</h4>
+    {% with twitter=author.twitter fb=author.facebook ig=author.instagram %}
+    <div class="social-links">
+      {% if twitter %}
+      <a href="{{author.twitter}}"><i class="bi bi-twitter"></i></a>
+      {% endif %}
+      
+      {% if fb %}
+      <a href="{{author.facebook}}"><i class="bi bi-facebook"></i></a>
+      {% endif %}
+      
+      {% if ig %}
+      <a href="{{author.instagram}}"><i class="biu bi-instagram"></i></a>
+      {% endif %}
+      {% endwith %}
+    </div>
+    <p>{{author.bio}}</p>
+  </div>
+</div>

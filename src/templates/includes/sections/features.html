@@ -1,0 +1,112 @@
+{% load wagtailcore_tags %}
+
+{% with features=page.features %}
+<!-- ======= Features Section ======= -->
+<section id="features" class="features">
+  <div class="container">
+    <div class="row">
+      {% if features %}
+      {% for feature in features %}
+      <div class="col-lg-3 col-md-4 col-6 col-6">
+        <div class="icon-box">
+          <i class="{{feature.icon}}" style="color: {% if feature.color %} {{feature.color}}; {% else %}#e80368;{% endif %} "></i>
+          {% if feature.link %}
+          <h3><a href="{% pageurl feature.link %}">{{feature.name}}</a></h3>
+          {% else %}
+          <h3>{{feature.name}}</h3>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+      {% else %}
+      <div class="col-lg-3 col-md-4 col-6">
+        <div class="icon-box">
+            <i class="ri-phone-line" style="color: #e74c3c;"></i>
+            <h3><a href="#">HD Voice</a></h3>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6">
+        <div class="icon-box">
+            <i class="ri-global-line" style="color: #1abc9c;"></i>
+            <h3><a href="#">Global Reach</a></h3>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-6 mt-4 mt-md-0">
+        <div class="icon-box">
+            <i class="ri-lock-line" style="color: #9b59b6;"></i>
+            <h3><a href="#">Data Security</a></h3>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-4 col-6 mt-4 mt-lg-0">
+      <div class="icon-box">
+          <i class="ri-customer-service-line" style="color: #e67e22;"></i>
+          <h3><a href="#">24/7 Support</a></h3>
+      </div>
+  </div>    
+
+  <div class="col-lg-3 col-md-4 col-6 mt-4">
+    <div class="icon-box">
+        <i class="ri-chat-3-line" style="color: #2ecc71;"></i>
+        <h3><a href="#">Live Chat</a></h3>
+    </div>
+</div>  
+
+<div class="col-lg-3 col-md-4 col-6 mt-4">
+  <div class="icon-box">
+      <i class="ri-time-line" style="color: #3498db;"></i>
+      <h3><a href="#">Real-Time Data</a></h3>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-6 mt-4">
+  <div class="icon-box">
+      <i class="ri-shield-check-line" style="color: #f39c12;"></i>
+      <h3><a href="#">Call Encryption</a></h3>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-6 mt-4">
+  <div class="icon-box">
+      <i class="ri-phone-camera-line" style="color: #8e44ad;"></i>
+      <h3><a href="#">Video Calls</a></h3>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-6 mt-4">
+  <div class="icon-box">
+      <i class="ri-repeat-line" style="color: #d35400;"></i>
+      <h3><a href="#">Call Transfer</a></h3>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-6 mt-4">
+  <div class="icon-box">
+      <i class="ri-user-voice-line" style="color: #16a085;"></i>
+      <h3><a href="#">Voicemail</a></h3>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-6 mt-4">
+  <div class="icon-box">
+      <i class="ri-router-line" style="color: #2980b9;"></i>
+      <h3><a href="#">Network Quality</a></h3>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-6 mt-4">
+  <div class="icon-box">
+      <i class="ri-settings-3-line" style="color: #c0392b;"></i>
+      <h3><a href="#">Custom Setup</a></h3>
+  </div>
+</div>
+
+
+      {% endif %}
+    </div>
+  </div>
+</section>
+<!-- End Features Section -->
+{% endwith %}

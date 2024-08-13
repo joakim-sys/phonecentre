@@ -1,0 +1,16 @@
+{% load navigation_tags %}
+
+<div class="blog-pagination">
+    <ul class="justify-content-center">
+
+        {% for i in subpages.paginator.page_range %}
+        {% if subpages.number == i %}
+        <li class="active"><a>{{i}}</a></li>
+        {% else %}
+        <li><a href="?page={{query_string|urlencode}}&amp;page={{i}}">{{i}}</a></li>
+        {% endif %}
+        {% endfor %}
+
+    </ul>
+  </div>
+</div>

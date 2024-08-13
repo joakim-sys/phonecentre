@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags navigation_tags wagtailimages_tags %} 
+
+
+{% block title %}
+{% if self.seo_title %}{{self.seo_title}}{% else %}{{self.title}}{% endif %}
+
+{% if tag %}
+{{tag}}
+{% endif %}
+
+{% endblock title %}
+
+
+{% if tag %}
+
+    {% block search_description %}Viewing all articles sorted by the tag {{tag}}{% endblock search_description %}
+{% endif %}
+
+
+{% block content %}
+
+
+<!-- ======= Blog Section ======= -->
+<section id="blog" class="blog">
+  {% if posts %}
+
+    {% if tag %}
+    <div class="section-title">
+        <h2>{{tag}}</h2>
+        <h3>
+          <span>
+              {% comment %}  {% endcomment %}
+          </span>
+          </h3>
+          <p>You are viewing articles related to {{tag|upper}}</p>
+      </div>
+    {% endif %}
+    
+    {% if category %}
+    <div class="section-title">
+        <h2>{{category}}</h2>
+        <h3>
+          <span>
+              {% comment %}  {% endcomment %}
+          </span>
+          </h3>
+          <p>You are viewing articles related to {{category|upper}}</p>
+      </div>
+    {% endif %}
+
+
+    <div class="container" data-aos="fade-up">
+    <div class="row">
+      <div class="col-lg-8 entries">
+
+        {% for post in posts %}
+        {% include "blog/includes/post-card.html" %}
+        {% endfor %}
+        <!-- End blog entry -->
+
+      {% if posts %}
+      {% include "blog/includes/pagination.html" with subpages=posts %}
+      {% endif %}
+      <!-- End blog entries list -->
+
+      {% include "blog/includes/sidebar/sidebar.html" %}
+      <!-- End blog sidebar -->
+    </div>
+  </div>
+
+  {% else %}
+{# If there are no posts #}
+<div class="section-title">
+  <h2>{{page.introduction}}</h2>
+  <h3>
+    <span>
+        {% comment %}  {% endcomment %}
+    </span>
+    </h3>
+    <p>There are no entries yet. Come back later</p>
+</div>
+
+  {% endif %}
+
+</section>
+<!-- End Blog Section -->
+
+
+
+{% endblock content %}

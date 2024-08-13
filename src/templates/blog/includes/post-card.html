@@ -1,0 +1,48 @@
+{% load wagtailcore_tags navigation_tags wagtailimages_tags %}
+
+<article class="entry">
+  <div class="entry-img">
+    {% if post.image %}
+    {% image post.image fill-850x530 as entry_image %}
+    <img src="{{entry_image.url}}" alt="" class="img-fluid" />
+    {% endif %}
+</div>
+
+  <h2 class="entry-title">
+    <a href="{% pageurl post %}"
+      >{{post.title}}</a
+    >
+  </h2>
+
+  <div class="entry-meta">
+    <ul>
+      <li class="d-flex align-items-center">
+        <i class="bi bi-person"></i>
+        {% for author in post.authors|slice:"1"  %}
+        <a href="#">{{author}}</a>
+        {% endfor %}
+      </li>
+      <li class="d-flex align-items-center">
+        <i class="bi bi-clock"></i>
+        <a href="#"
+          ><time datetime="2020-01-01">{{post.date_published}}</time></a
+        >
+      </li>
+      {% if post.get_comments %}
+      <li class="d-flex align-items-center">
+        <i class="bi bi-chat-dots"></i>
+        <a href="#">{{post.comments.count}}</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <div class="entry-content">
+    {% if post.introduction %}
+        <p>{{post.introduction|truncatewords:50}}</p>
+    {% endif %}
+    <div class="read-more">
+      <a href="{% pageurl post %}">Read More</a>
+    </div>
+  </div>
+</article>

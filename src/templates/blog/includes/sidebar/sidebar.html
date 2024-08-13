@@ -1,0 +1,36 @@
+{% load wagtailcore_tags wagtailimages_tags navigation_tags blog_tags %}
+
+<div class="col-lg-4">
+  <div class="sidebar">
+
+    {% include "blog/includes/sidebar/search.html" %}
+    <!-- End sidebar search formn-->
+
+    {% categories_exist as ce %}
+    {% if ce %}
+    {% include "blog/includes/sidebar/categories.html" %}
+    {% endif %}
+    <!-- End sidebar categories-->
+
+
+    {% if latest_posts %}
+    <h3 class="sidebar-title">Recent Posts</h3>
+    <div class="sidebar-item recent-posts">
+    
+    {% for post in latest_posts %}
+    {% include "blog/includes/sidebar/latest_posts.html" %}
+    {% endfor %}
+
+    </div>
+    {% endif %}
+    <!-- End sidebar recent posts-->
+
+    {% blog_tags_exist as bte %}
+    {% if bte %}
+    {% include "blog/includes/sidebar/tags.html" %}
+    {% endif %}
+
+    <!-- End sidebar tags-->
+  </div>
+  <!-- End sidebar -->
+</div>

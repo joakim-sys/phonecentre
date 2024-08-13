@@ -1,0 +1,11 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="post-item clearfix">
+  {% if post.image %} {% image post.image fill-1024x768 as img %}
+  <img src="{{img.url}}" alt="" />
+  {% endif %}
+  <h4>
+    <a href="{% pageurl post %}">{{post.title}}</a>
+  </h4>
+  <time datetime="2020-01-01">{{post.date_published}}</time>
+</div>

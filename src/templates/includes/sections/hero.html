@@ -1,0 +1,44 @@
+{% load wagtailcore_tags wagtailimages_tags static %}
+
+<!-- ======= Hero Section ======= -->
+{% image page.hero_image fill-1920x1200 as hero_image %}
+<section
+  id="hero"
+>
+
+{% with welcome=page.hero_welcome_text heading=page.hero_heading subheading=page.hero_subheading cta_link=page.hero_cta_link cta_text=page.hero_cta_text  %}
+<div class="hero-container">
+    
+    <h3>
+      {% if welcome %}
+      {{page.hero_welcome_text}}
+      {% else %}
+      Welcome to <b>Phone Centre</b>
+      {% endif %}
+    </h3>
+
+    <h1>
+      {% if heading %}
+      {{heading}}
+      {% else %}
+      Seamless Communication Solutions
+      {% endif %}
+    </h1>
+    <h2>
+      {% if subheading %}
+      {{subheading}}
+      {% else %}
+      Affordable VoIP Services for Your Business Needs
+      {% endif %}
+    </h2>
+    <a
+      href="{% if cta_link %}{% pageurl cta_link %}{% else %}#about{% endif %}"
+      class="btn-get-started scrollto"
+      >
+        {% if cta_text %}{{cta_text}}{% else %}Start{% endif %}
+      </a
+    >
+  </div>
+{% endwith %}
+</section>
+<!-- End Hero -->
